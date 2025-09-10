@@ -21,6 +21,7 @@ describe('Fluxo de checkout', () => {
         await checkoutPage.addToCart()
         await checkoutPage.continueToPayment()
         await checkoutPage.completeCheckout()
+        await expect(checkoutPage.transactionSuccessfulImage).toBeDisplayed()
     
     });
 })
