@@ -12,7 +12,11 @@
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "test": "wdio run ./wdio.conf.js"
+    "test": "wdio run ./wdio.conf.js",
+    "test:ios": "wdio run ./wdio.ios.conf.js",
+    "test:product": "wdio run ./wdio.ios.conf.js --spec ./test/specs/product.test.js",
+    "test:checkout": "wdio run ./wdio.ios.conf.js --spec ./test/specs/checkout.test.js"
+
   },
   "dependencies": {
     "allure-commandline": "^2.25.0"
