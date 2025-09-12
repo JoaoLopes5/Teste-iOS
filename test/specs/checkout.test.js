@@ -14,7 +14,7 @@ describe('Fluxo de checkout', () => {
     })
   it('Deve acessar um produto', async () => {
           await homePage.search()
-          await (await browsePage.products).at(2).click()
+          await (await browsePage.products()).at(2).click()
           await expect(productPage.getProductTitle('Camiseta EBAC')).toBeDisplayed()
       })
     it('Deve colocar um produto no carrinho', async () => {
