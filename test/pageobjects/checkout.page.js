@@ -2,17 +2,17 @@ import { $ } from '@wdio/globals'
 
 class CheckoutPage {
     async addToCart(){
-        await $('~addToCart').click()
+        (await $('~addToCart')).click()
     }
     async continueToPayment(){
-        await $('~selectAddressOrContinueToPayment').click()
+        (await $('~selectAddressOrContinueToPayment')).click()
     }
     async completeCheckout(){
-        await $('~completeCheckout').click()
+        (await $('~completeCheckout')).click()
     }
     async transactionSuccessfulImage(){
-        return await $('~transactionSuccessfulImage') 
-//outra possível validação '~goBackHome'
+        return await $(`~transactionSuccessfulImage`)
+//outra possível validação '~goBackHome', '~transactionSuccessfulImage'
     }
 }
 

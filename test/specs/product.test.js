@@ -4,9 +4,13 @@ import browsePage from '../pageobjects/browse.page.js'
 import productPage from '../pageobjects/product.page.js'
 
 describe('Pesquisar por produtos', () => {
-    it('Deve acessar um produto', async () => {
-        await homePage.search()
-        await (await browsePage.products).at(2).click()
-        await expect(productPage.getProductTitle('Camiseta EBAC')).toBeDisplayed()
-    })
+   it('Deve acessar um produto', async () => {
+           await homePage.search()
+           await (await browsePage.searchInput).setValue('Es')
+           // Primeiro clique para minimizar o teclado do celular.
+           await browsePage.products()
+           // Segundo clique para realizar a pesquisa.
+           await browsePage.products()
+          await expect(productPage.getProductTitle('Tênis Esportivo')).toBeDisplayed()
+      })
 })

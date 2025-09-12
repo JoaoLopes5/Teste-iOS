@@ -5,7 +5,7 @@ class BrowsePage {
     return $(`-ios predicate string:name == "searchInput"`)
  }
  async products(){
-     return await $$(`//XCUIElementTypeOther[@name= "productDetails"]`)
+      await $(`-ios class chain:**/XCUIElementTypeOther[\`name == "productDetails"\`][3]`).click()
  }
   
 }

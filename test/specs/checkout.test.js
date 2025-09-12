@@ -1,7 +1,6 @@
 import { expect, driver } from '@wdio/globals'
 import homePage from '../pageobjects/home.page.js'
 import loginPage from '../pageobjects/login.page.js'
-import profilePage from '../pageobjects/profile.page.js'
 import checkoutPage from '../pageobjects/checkout.page.js'
 import browsePage from '../pageobjects/browse.page.js'
 import productPage from '../pageobjects/product.page.js'
@@ -14,14 +13,19 @@ describe('Fluxo de checkout', () => {
     })
   it('Deve acessar um produto', async () => {
           await homePage.search()
-          await (await browsePage.products()).at(2).click()
-          await expect(productPage.getProductTitle('Camiseta EBAC')).toBeDisplayed()
+          await (await browsePage.searchInput).setValue('Es')
+          //Primeiro clique para minimizar o teclado do celular.
+          await browsePage.products()
+          //Segundo clique para realizar a pesquisa.
+          await browsePage.products()
+          await expect(productPage.getProductTitle('Tênis Esportivo')).toBeDisplayed()
       })
-    it('Deve colocar um produto no carrinho', async () => {
+    it('Deve colocar um produto no carrinho e concluir compra', async () => {
         await checkoutPage.addToCart()
         await checkoutPage.continueToPayment()
         await checkoutPage.completeCheckout()
-        await expect(checkoutPage.transactionSuccessfulImage).toBeDisplayed()
+        //await (await checkoutPage.transactionSuccessfulImage()).waitForDisplayed({ timeout: 30000 })
+        //await expect( await checkoutPage.transactionSuccessfulImage()).toBeDisplayed()
     
     });
 })

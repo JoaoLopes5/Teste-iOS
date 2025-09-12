@@ -1,7 +1,7 @@
 import { generalConf } from './general.conf.js'
 export let bsConf = {
     user: process.env.BROWSERSTACK_USERNAME,
-    key: process.env.BROWSERSTACK_ACCESS_KEY,
+    key: process.env.BROWSERSTACK_KEY,
     hostname: 'hub.browserstack.com',
     capabilities: process.env.PLATFORM === "android" ? [
         {
@@ -14,10 +14,10 @@ export let bsConf = {
     ] : [
         {
             "platformName": "iOS",
-            "appium:deviceName": "iPhone 15",
-            "appium:platformVersion": "17",
+            "appium:deviceName": "iPhone 14 Pro Max",
+            "appium:platformVersion": "16",
             "appium:automationName": "XCUITest",
-            "appium:app": "bs://f1abddedd1b87aa26b333736e1aa3ff8337ab8d9"
+            "appium:app": "bs://5d4e4242ab5cc990461457be8f253d8e7caae5a8"
         }
     ],
     commonCapabilities: {
