@@ -11,22 +11,17 @@ describe('Fluxo de checkout', () => {
         await homePage.openMenu(profileTab)
         await loginPage.login('cliente@ebac.art.br', 'GD*peToHNJ1#c$sgk08EaYJQ')
     })
-  it('Deve acessar um produto', async () => {
-          await homePage.search()
-          await (await browsePage.searchInput).setValue('Es')
+  it('Deve acessar um produto e completar o fluxo de checkout', async () => {
+        await homePage.search()
+        await (await browsePage.searchInput).setValue('Es')
           //Primeiro clique para minimizar o teclado do celular.
-          await browsePage.products()
+        await browsePage.products()
           //Segundo clique para realizar a pesquisa.
-          await browsePage.products()
-          await expect(productPage.getProductTitle('Tênis Esportivo')).toBeDisplayed()
-      })
-    it('Deve colocar um produto no carrinho e concluir compra', async () => {
+        await browsePage.products()
+        await expect(productPage.getProductTitle('Tênis Esportivo')).toBeDisplayed()
         await checkoutPage.addToCart()
         await checkoutPage.continueToPayment()
         await checkoutPage.completeCheckout()
-        //await (await checkoutPage.transactionSuccessfulImage()).waitForDisplayed({ timeout: 30000 })
-        //await expect( await checkoutPage.transactionSuccessfulImage()).toBeDisplayed()
-    
-    });
-})
+      })
+ })
 
