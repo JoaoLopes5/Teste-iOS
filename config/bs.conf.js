@@ -24,9 +24,9 @@ export let bsConf = {
         'bstack:options': {
             projectName: "BrowserStack EBAC",
             buildName: 'browserstack build',
-            sessionName: `Test ${process.env.PLATFORM}`
-            // debug: true,
-            // networkLogs: true
+            sessionName: `Test ${process.env.PLATFORM}`,
+            debug: true,
+            networkLogs: true
         }
     },
     ...generalConf

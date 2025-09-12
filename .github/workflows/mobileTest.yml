@@ -27,7 +27,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://<YOUR_GITHUB_USERNAME>:${{ secrets.PAT_TOKEN }}@github.com/JoaoLopes5/Teste-iOS.git
+          git remote set-url origin https://JoaoLopes5:${{ secrets.PAT_TOKEN }}@github.com/JoaoLopes5/Teste-iOS.git
           git add ./allure-report
           git commit -m "Update Allure Report [ci skip]" || echo "No changes to commit"
           git push origin gh-pages
