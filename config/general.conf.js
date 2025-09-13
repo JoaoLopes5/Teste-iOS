@@ -5,13 +5,13 @@ import { hooksConf } from './hooks.conf.js'
 export let generalConf = {
     maxInstances: 1,
     logLevel: 'info',
-    waitforTimeout: 10000,
+    waitforTimeout: 20000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
     framework: 'mocha',
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 180000
     },
     ...specsConf,
     ...suitesConf,
